@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahasiswi Psikologi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+--purple-dark1: #3a1c71;
+--purple-dark2: #d76d77;
+--purple-dark3: #9e2f5e;
+--glass-bg: rgba(255, 255, 255, 0.15);
+--text: #fff;
+--shadow: rgba(0, 0, 0, 0.5);
+--font-title: 'Montserrat', serif;
+--font-body: 'Montserrat', 'San-serif';
+}
+
+* {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; 
+  -webkit-user-select: none; 
+  user-select: none;
+}
+
+html, body {
+  width: 100%;
+  font-size: 10px;
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+  overflow-x: hidden;  
+}
+
+body {
+  background: linear-gradient(120deg, var(--purple-dark1), var(--purple-dark3), var(--purple-dark2));
+  background-color: var(--glass-bg);
+  background-size: cover;
+  color: var(--text);
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(3px);
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.3),
+    inset 1px 1px 8px rgba(255,255,255,0.05);
+}
+
+section h2 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+section i {
+  margin: 0 5px;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: #ffd1f2;
+  text-decoration: underline;
+}
+
+.section-home h1 {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.section-home p {
+  font-size: 1rem;
+}
+   
+.profile-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.4);
+  margin: 0 auto 1rem;
+  display: block;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.profile-name { 
+  text-align: center; 
+  margin: 0 auto; 
+  margin-bottom: 25px;
+}
+    
+.profile-bio { 
+  text-align: center; 
+  margin: 0 auto; 
+  margin-bottom: 25px;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+
+.social-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+  border-radius: 50%;
+  backdrop-filter: blur(3px);
+  transition: all color 0.3s ease;
+  background: var(--glass-bg);
+  box-shadow: 0 10px 20px var(--shadow), inset 1px 1px 10px rgba(255,255,255,0.05);
+  backdrop-filter: blur(3px);
+  transition: all color 0.3s ease;
+}
+
+.social-buttons a:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    2px 2px 10px rgba(0,0,0,0.4),
+    -2px -2px 10px rgba(255,255,255,0.2),
+    inset 1px 1px 4px rgba(255,255,255,0.15);
+}
+
+.social-buttons i {
+  font-size: 1.4rem;
+  color: #ffd1f2;
+}
+
+.about-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+.tab-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  border-radius: 14px;
+  backdrop-filter: blur(3px);
+  transition: all color 0.3s ease;
+  background: var(--glass-bg);
+  box-shadow: 0 10px 20px var(--shadow), inset 1px 1px 10px rgba(255,255,255,0.05);
+  backdrop-filter: blur(3px);
+  transition: all color 0.3s ease;
+}
+
+.tab-item:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    2px 2px 10px rgba(0,0,0,0.4),
+    -2px -2px 10px rgba(255,255,255,0.2),
+    inset 1px 1px 4px rgba(255,255,255,0.15);
+}
+
+.tab-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tab-content.active {
+  display: block;
+  opacity: 1;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timeline-item {
+  background: var(--glass-bg);
+  border-radius: 15px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.timeline-item i.icon {
+  font-size: 1.8rem;
+  color: #ffd1f2;
+}
+    
+.section-blog h3 {
+  font-size: 15px;
+  margin-bottom: 20px;
+  padding: 0 15px;
+} 
+    
+.section-blog p {
+  font-size: 10px;
+  margin-bottom: 20px;
+  padding:  0 15px;
+} 
+
+.blog-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; 
+  padding: 20px;
+  border-radius: 10px; 
+  transform: rotate(361deg);
+  transition: transform 0.3s ease;
+}
+
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(3px);
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px var(--shadow), inset 1px 1px 10px rgba(255,255,255,0.05);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+    
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.program-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(3px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 20px var(--shadow), inset 1px 1px 10px rgba(255,255,255,0.05);
+  text-align: center;
+}
+
+.program-card i.program-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: #ffd1f2;
+}
+
+.section-contact .contact-info {
+  margin-bottom: 2rem;
+  color: #eee;
+  line-height: 1.8;
+}
+
+.section-contact .contact-info i {
+  margin-right: 0.5rem;
+  color: #ffd1f2;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form label {
+  font-weight: 500;
+  color: #fff;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 10px 20px var(--shadow), inset 1px 1px 10px rgba(255,255,255,0.05);
+  transition: background 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.contact-form button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  color: #fff;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 14px;
+  background: var(--glass-bg);
+  box-shadow: 0 10px 20px var(--shadow), inset 1px 1px 10px rgba(255,255,255,0.05);
+  backdrop-filter: blur(3px);
+  transition: all color 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: scale(1.02);
+  color: #fff;
+  box-shadow: 
+    2px 2px 10px rgba(0,0,0,0.4),
+    -2px -2px 10px rgba(255,255,255,0.2),
+    inset 1px 1px 4px rgba(255,255,255,0.15);
+}
+</style>
+</head>
+<body oncontextmenu="return false;" oncopy="return false;" onselectstart="return false;">
+<section id="home" class="section-home">
+  <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="profile" class="profile-image" />
+
+    <!-- Social Media -->
+    <div class="social-buttons">
+      <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+      <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+
+  <h1 class="profile-name">Ni'mah Fadilah</h1>
+
+  <p class="profile-bio">
+  Mahasiswi Psikologi dengan minat mendalam pada bidang psikologi perkembangan dan trauma healing. Memiliki ketertarikan khusus pada pemahaman proses tumbuh-kembang individu dari masa kanak-kanak hingga dewasa, serta pendekatan holistik dalam pemulihan dari pengalaman traumatis. 
+  </p>
+
+  <!-- About Tabs Start -->
+  <div class="about-tabs">
+    <span class="tab-item active" data-target=".skills">Skills</span>
+    <span class="tab-item" data-target=".experience">Experience</span>
+    <span class="tab-item" data-target=".education">Education</span>
+  </div>
+
+  <!-- Skills Tab -->
+  <div class="tab-content skills active">
+    <div class="timeline">
+      <div class="timeline-item">
+        <i class="fas fa-lightbulb icon"></i>
+        <span>Selftaught</span>
+        <h3>Psikoedukasi</h3>
+      </div>
+      <div class="timeline-item">
+        <i class="fas fa-brain icon"></i>
+        <span>Selftaught</span>
+        <h3>Mindfulness Guidance</h3>
+      </div>
+      <div class="timeline-item">
+        <i class="fas fa-pen-nib icon"></i>
+        <span>Selftaught</span>
+        <h3>Content Writing Psikologi</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience Tab -->
+  <div class="tab-content experience">
+    <div class="timeline">
+      <div class="timeline-item">
+        <i class="fas fa-video icon"></i>
+        <span>Freelance</span>
+        <h3>Video Editing Edukasi</h3>
+      </div>
+      <div class="timeline-item">
+        <i class="fas fa-paint-brush icon"></i>
+        <span>Volunteer</span>
+        <h3>Konten Psikologi Visual</h3>
+      </div>
+      <div class="timeline-item">
+        <i class="fas fa-hand-holding-heart icon"></i>
+        <span>Komunitas</span>
+        <h3>Support Group Facilitator</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education Tab -->
+  <div class="tab-content education">
+    <div class="timeline">
+      <div class="timeline-item">
+        <i class="fas fa-graduation-cap icon"></i>
+        <span>Universitas Indonesia</span>
+        <h3>S1 Psikologi</h3>
+      </div>
+      <div class="timeline-item">
+        <i class="fas fa-certificate icon"></i>
+        <span>Pelatihan Nonformal</span>
+        <h3>Basic Counseling Skills</h3>
+      </div>
+      <div class="timeline-item">
+        <i class="fas fa-book icon"></i>
+        <span>Workshop</span>
+        <h3>Trauma-Informed Care</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section id="interest" class="section-interest">
+    <h2><i class="fas fa-palette icon"></i> Interest & Focus </h2>
+    <p>
+    Beberapa kegiatan yang mendukung pengembangan diri dan keilmuan psikologi, mulai dari seminar ilmiah, workshop, hingga aktivitas sosial berbasis pendekatan psikologis.
+    </p>
+    <br>
+    <ul>
+      <li>Psikologi perkembangan anak & remaja</li>
+      <li>Psikologi klinis & trauma healing</li>
+      <li>Psikoedukasi & media kesehatan mental</li>
+      <li>Diskusi dan kuliah umum seputar isu-isu psikologi.</li>
+      <li>Edukasi tentang pentingnya kesehatan mental.</li>
+      <li>Fasilitasi sharing dan konseling untuk masyarakat.</li>
+      <li>Kegiatan reflektif untuk menjaga keseimbangan mental.</li>
+      <li>Pelatihan mindful breathing, active listening, dan emotional regulation.</li>
+      <li>Membahas buku atau jurnal psikologi secara kolektif dalam forum terbuka.</li>
+    </ul>
+  </section>
+  
+  <!-- Programs Section -->
+<section id="program" class="section-program">
+  <h2><i class="fas fa-calendar-alt icon"></i> Programs & Activity </h2>
+  <div class="program-grid">
+    <div class="program-card">
+      <i class="fas fa-brain program-icon"></i>
+      <h3>Seminar Psikologi</h3>      
+    </div>
+    <div class="program-card">
+      <i class="fas fa-hands-helping program-icon"></i>
+      <h3>Psikoedukasi</h3>      
+    </div>
+    <div class="program-card">
+      <i class="fas fa-users program-icon"></i>
+      <h3>Kelompok Dukungan</h3>     
+    </div>
+    <div class="program-card">
+      <i class="fas fa-chalkboard-teacher program-icon"></i>
+      <h3>Workshop Psikologis</h3>
+    </div>
+    <div class="program-card">
+      <i class="fas fa-leaf program-icon"></i>
+      <h3>Healing Session</h3>      
+    </div>
+    <div class="program-card">
+      <i class="fas fa-book-reader program-icon"></i>
+      <h3>Studi Literatur</h3>     
+    </div>
+  </div>
+</section>
+  
+<section id="blog" class="section-blog">
+  <h2><i class="fas fa-pen-nib icon"></i> Blog & Insight</h2>
+  <div class="card-grid">
+    <div class="card blog-card">
+      <img src="https://i.ibb.co/zVryvKd3/Lucid-Realism-A-highly-detailed-realistic-floral-illustration-0-removebg-preview.png" alt="Mindfulness" class="blog-image" />
+      <h3>Mindfulness</h3>
+      <p>Mindfulness membantu mengelola stres akademik. Yuk, mulai dari napas dan jadwal tidurmu.</p>
+    </div>
+    <div class="card blog-card">
+      <img src="https://i.ibb.co/zVryvKd3/Lucid-Realism-A-highly-detailed-realistic-floral-illustration-0-removebg-preview.png" alt="Mental Health" class="blog-image" />
+      <h3>Inner Child</h3>
+      <p>Bagaimana luka masa kecil membentuk pola pikir kita saat dewasa? Temukan penjelasannya di sini.</p>
+    </div>
+    <div class="card blog-card">
+      <img src="https://i.ibb.co/zVryvKd3/Lucid-Realism-A-highly-detailed-realistic-floral-illustration-0-removebg-preview.png" alt="Journaling" class="blog-image" />
+      <h3>Healing Journaling</h3> 
+      <p>Menulis bukan sekadar mencurahkan isi hati. Ia juga sarana refleksi dan penyembuhan batin.</p>
+    </div>
+  </div>
+</section>
+
+    <!-- Contact Section -->
+  <section id="contact" class="section-contact">
+    <h2><i class="fas fa-envelope section-icon"></i> Get In Touch </h2>
+     <form id="contactForm" class="contact-form">
+      <label for="name">Nama</label>
+      <input type="text" id="name" name="name" placeholder="Nama lengkap" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Email Anda" required />
+
+      <label for="message">Pesan</label>
+      <textarea id="message" name="message" rows="4" placeholder="Tulis pesan Anda" required></textarea>
+
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+  
+<script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script> 
+<script>
+  const tabs = document.querySelectorAll(".tab-item");
+  const contents = document.querySelectorAll(".tab-content");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      // Remove active class from all
+      tabs.forEach(t => t.classList.remove("active"));
+      contents.forEach(c => c.classList.remove("active"));
+
+      // Activate current
+      tab.classList.add("active");
+      document.querySelector(tab.dataset.target).classList.add("active");
+    });
+  });
+
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nama = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const pesan = document.getElementById("message").value;
+
+    alert(`Terima kasih, ${nama}! Pesanmu sudah terkirim.\nEmail: ${email}\nPesan: ${pesan}`);
+    
+    form.reset(); 
+  });
+  
+  document.addEventListener("contextmenu", e => e.preventDefault());
+  document.addEventListener("selectstart", e => e.preventDefault());
+  document.addEventListener("copy", e => e.preventDefault());
+</script>
+</body>
+</html>
