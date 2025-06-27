@@ -49,7 +49,7 @@ body {
   background-size: cover;  
   color: var(--text);
   line-height: 1.6;
-  padding: 2rem;
+  padding: 3rem;
 }
 
 section {
@@ -206,36 +206,7 @@ a {
   color: #ffd1f2;
 }
     
-.section-blog h3 {
-  font-size: 15px;
-  margin-bottom: 20px;
-  padding: 0 15px;
-} 
-    
-.section-blog p {
-  font-size: 10px;
-  margin-bottom: 20px;
-  padding:  0 15px;
-} 
-
-.blog-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover; 
-  padding: 20px;
-  border-radius: var(--radius);
-  transform: rotate(361deg);
-}
-
-.blog-card {
-  background: var(--glass-bg);
-  backdrop-filter: var(--backdrop);
-  padding: 1.5rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.card-grid, .program-grid {
+.blog-grid, .program-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
@@ -254,6 +225,38 @@ a {
   font-size: 2.5rem;
   margin-bottom: 0.75rem;
   color: #ffd1f2;
+}
+
+.section-blog h3 {
+  font-size: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 0 15px;
+} 
+    
+.section-blog p {
+  font-size: 10px;
+  margin-bottom: 15px;
+  padding:  0 15px;
+} 
+
+.blog-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+}
+
+.blog-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .section-contact .contact-info {
@@ -353,21 +356,21 @@ a {
 </head>
 <body oncontextmenu="return false;" oncopy="return false;" onselectstart="return false;">
 <section id="home" class="section-home">
-  <img src="https://i.ibb.co/svN6LRTW/cartoon-illustration.jpg" alt="profile" class="profile-image" />
+  <img src="picture.jpg" alt="profile" class="profile-image" />
   
   <!-- Social Media -->
   <div class="social-buttons">
-    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fas fa-envelope"></i></a>
+    <a href="https://instagram.com/dilaaangit" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/dilaaangit" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://instagram.com/dilaaangit" target="_blank"><i class="fab fa-telegram"></i></a>
+    <a href="https://instagram.com/dilaaangit"><i class="fas fa-envelope"></i></a>
   </div>
   
   <h1 class="profile-name">Ni'mah Fadilah</h1>
   
   <div class="button-row">
   <a href="#contact" class="btn">Contact Me</a>
-  <a href="cv-nikmah.pdf" class="btn" download>Download CV</a>
+  <a href="file-CV.pdf" class="btn" download>Download CV</a>
   </div>
 
   <p class="profile-bio">
@@ -428,7 +431,7 @@ a {
     <div class="timeline">
       <div class="timeline-item">
         <i class="fas fa-graduation-cap icon"></i>
-        <span>Universitas Indonesia</span>
+        <span>Universitas Ibrahimy</span>
         <h3>S1 Psikologi</h3>
       </div>
       <div class="timeline-item">
@@ -497,22 +500,26 @@ a {
   
 <section id="blog" class="section-blog">
   <h2><i class="fas fa-pen-nib icon"></i> Blog & Insight</h2>
-  <div class="card-grid">
+  <div class="blog-grid">
+  
     <div class="blog-card">
-      <img src="https://i.ibb.co/zVryvKd3/Lucid-Realism-A-highly-detailed-realistic-floral-illustration-0-removebg-preview.png" alt="Mindfulness" class="blog-image" />
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mindfulness" class="blog-image" />
       <h3>Mindfulness</h3>
       <p>Mindfulness membantu mengelola stres akademik. Yuk, mulai dari napas dan jadwal tidurmu.</p>
     </div>
+    
     <div class="blog-card">
-      <img src="https://i.ibb.co/zVryvKd3/Lucid-Realism-A-highly-detailed-realistic-floral-illustration-0-removebg-preview.png" alt="Mental Health" class="blog-image" />
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Inner Child" class="blog-image" />
       <h3>Inner Child</h3>
       <p>Bagaimana luka masa kecil membentuk pola pikir kita saat dewasa? Temukan penjelasannya di sini.</p>
     </div>
+    
     <div class="blog-card">
-      <img src="https://i.ibb.co/zVryvKd3/Lucid-Realism-A-highly-detailed-realistic-floral-illustration-0-removebg-preview.png" alt="Journaling" class="blog-image" />
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Journaling" class="blog-image" />
       <h3>Healing Journaling</h3> 
       <p>Menulis bukan sekadar mencurahkan isi hati. Ia juga sarana refleksi dan penyembuhan batin.</p>
     </div>
+    
   </div>
 </section>
 
