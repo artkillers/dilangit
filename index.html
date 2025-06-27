@@ -10,19 +10,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --purple-dark1: #3a1c71;
-  --purple-dark2: #9e2f5e;
-  --purple-dark3: #d76d77;
-  --text: #fff;
-  --font-title: 'Montserrat', serif;
-  --font-body: 'Montserrat', serif;
+  --color-1: #3a1c71;  /* Ungu */
+  --color-2: #9e2f5e;  /* Magenta */
+  --color-3: #d76d77;  /* Pink */
+  --rgba-1: rgba(58, 28, 113, 0.5); 
+  --rgba-2: rgba(158, 47, 94, 0.5);
+  --rgba-3: rgba(215, 109, 119, 0.5);
+  --font: 'Montserrat', serif;
+  --text: #fff; 
   --radius: 8px;
-  --backdrop: blur(2px);
-  --glass-bg: rgba(255, 255, 255, 0.08);  
-  --shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 
-            inset 0 0 4px rgba(255, 255, 255, 0.04);
-  --hover: 0 0 8px rgba(0, 0, 0, 0.3),
-           inset 0 0 2px rgba(255, 255, 255, 0.1);
+  --backdrop: blur(3px);
+  --glass-bg: rgba(255, 255, 255, 0.05);  
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.5), 
+            inset 0 0 4px rgba(255, 255, 255, 0.02);
+  --hover: 0 0 4px rgba(0, 0, 0, 0.3),
+           inset 0 0 2px rgba(255, 255, 255, 0.01);
 }
 
 * {
@@ -35,18 +37,19 @@
 }
 
 html {
-  background: linear-gradient(120deg, var(--purple-dark1), var(--purple-dark2), var(--purple-dark3));
-  background-size: 100%;
+  background: linear-gradient(120deg, var(--color-1), var(--color-2), var(--color-3));
+  background-color: var(--rgba-2); 
   line-height: 1.6;
   font-size: 10px;
   color: var(--text);
-  font-family: var(--font-body);
+  font-family: var(--font);
   scroll-behavior: smooth;
-  overflow-x: hidden;  
 }
 
 body {
-  padding: 3rem;  
+  overflow-x: hidden;  
+  background-size: 100%;
+  padding: 2rem;  
 }
 
 section {
@@ -65,15 +68,15 @@ section h2 {
 }
 
 section i {
-  margin: 0 5px;
-}
-
-ul {
-  padding-left: 1.2rem;
+  margin: 0 4px;
 }
 
 ul li {
   margin-bottom: 0.5rem;
+}
+
+ul {
+  padding-left: 1.2rem;
 }
 
 a {
@@ -94,8 +97,26 @@ a {
   box-shadow: var(--hover);
 }
 
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  max-width: 240px;
+  margin: 2rem auto;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
 .section-home h1 {
-  font-family: var(--font-title);
+  font-family: var(--font);
   font-size: 3rem;
   margin-bottom: 1rem;
 }
@@ -179,7 +200,7 @@ a {
   gap: 1rem;
 }
 
-.timeline-item i.icon {
+.timeline-item i {
   font-size: 1.8rem;
   color: #ffd1f2;
 }
@@ -195,7 +216,7 @@ a {
   text-align: center;
 }
 
-.program-card i.program-icon {
+.program-card i {
   font-size: 2.5rem;
   margin-bottom: 0.75rem;
   color: #ffd1f2;
@@ -254,7 +275,7 @@ a {
 .contact-form input,
 .contact-form textarea {
   padding: 0.8rem 1rem;
-  font-family: var(--font-body);
+  font-family: var(--font);
   border: none;
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
@@ -274,7 +295,7 @@ a {
 }
 
 .contact-form button {
-  font-family: var(--font-body);
+  font-family: var(--font);
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 15px;
@@ -285,27 +306,47 @@ a {
   cursor: pointer;
 }
 
-.button-row {
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: linear-gradient(120deg, var(--color-1), var(--color-2), var(--color-3));
   display: flex;
-  justify-content: space-between;
-  max-width: 240px;
-  margin: 2rem auto;
-  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s ease;
 }
-
-.btn {
-  display: inline-block;
-  text-align: center;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
+  
+.spinning {
+  font-size: 5rem;
   color: #fff;
-  text-decoration: none;
+  animation: spin 3s linear infinite;
 }
 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+body.loader #preloader { 
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+body.loader {
+  overflow: auto;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
 </style>
 </head>
 <body oncontextmenu="return false;" oncopy="return false;" onselectstart="return false;">
+
+<div id="preloader">
+  <i class="fas fa-cog spinning"></i>
+</div>
+
 <section id="home" class="section-home">
   <img src="picture.jpg" alt="profile" class="profile-image" />
   
@@ -339,17 +380,17 @@ a {
   <div class="tab-content skills active">
     <div class="timeline">
       <div class="timeline-item glass">
-        <i class="fas fa-lightbulb icon"></i>
+        <i class="fas fa-lightbulb"></i>
         <span>Selftaught</span>
         <h3>Psikoedukasi</h3>
       </div>
       <div class="timeline-item glass">
-        <i class="fas fa-brain icon"></i>
+        <i class="fas fa-brain"></i>
         <span>Selftaught</span>
         <h3>Mindfulness Guidance</h3>
       </div>
       <div class="timeline-item glass">
-        <i class="fas fa-pen-nib icon"></i>
+        <i class="fas fa-pen-nib"></i>
         <span>Selftaught</span>
         <h3>Content Writing Psikologi</h3>
       </div>
@@ -360,17 +401,17 @@ a {
   <div class="tab-content experience">
     <div class="timeline">
       <div class="timeline-item glass">
-        <i class="fas fa-video icon"></i>
+        <i class="fas fa-video"></i>
         <span>Freelance</span>
         <h3>Video Editing Edukasi</h3>
       </div>
       <div class="timeline-item glass">
-        <i class="fas fa-paint-brush icon"></i>
+        <i class="fas fa-paint-brush"></i>
         <span>Volunteer</span>
         <h3>Konten Psikologi Visual</h3>
       </div>
       <div class="timeline-item glass">
-        <i class="fas fa-hand-holding-heart icon"></i>
+        <i class="fas fa-hand-holding-heart"></i>
         <span>Komunitas</span>
         <h3>Support Group Facilitator</h3>
       </div>
@@ -381,17 +422,17 @@ a {
   <div class="tab-content education">
     <div class="timeline">
       <div class="timeline-item glass">
-        <i class="fas fa-graduation-cap icon"></i>
+        <i class="fas fa-graduation-cap"></i>
         <span>Universitas Ibrahimy</span>
         <h3>S1 Psikologi</h3>
       </div>
       <div class="timeline-item glass">
-        <i class="fas fa-certificate icon"></i>
+        <i class="fas fa-certificate"></i>
         <span>Pelatihan Nonformal</span>
         <h3>Basic Counseling Skills</h3>
       </div>
       <div class="timeline-item glass">
-        <i class="fas fa-book icon"></i>
+        <i class="fas fa-book"></i>
         <span>Workshop</span>
         <h3>Trauma-Informed Care</h3>
       </div>
@@ -400,7 +441,7 @@ a {
 </section>
 
   <section id="interest" class="section-interest">
-    <h2><i class="fas fa-palette icon"></i> Interest & Focus </h2>
+    <h2><i class="fas fa-palette"></i> Interest & Focus </h2>
     <p>
     Beberapa kegiatan yang mendukung pengembangan diri dan keilmuan psikologi, mulai dari seminar ilmiah, workshop, hingga aktivitas sosial berbasis pendekatan psikologis.
     </p>
@@ -420,37 +461,37 @@ a {
   
   <!-- Programs Section -->
 <section id="program" class="section-program">
-  <h2><i class="fas fa-calendar-alt icon"></i> Programs & Activity </h2>
+  <h2><i class="fas fa-calendar-alt"></i> Programs & Activity </h2>
   <div class="program-grid">
     <div class="program-card glass">
-      <i class="fas fa-brain program-icon"></i>
+      <i class="fas fa-brain"></i>
       <h3>Seminar Psikologi</h3>      
     </div>
     <div class="program-card glass">
-      <i class="fas fa-hands-helping program-icon"></i>
+      <i class="fas fa-hands-helping"></i>
       <h3>Psikoedukasi</h3>      
     </div>
     <div class="program-card glass">
-      <i class="fas fa-users program-icon"></i>
+      <i class="fas fa-users"></i>
       <h3>Kelompok Dukungan</h3>     
     </div>
     <div class="program-card glass">
-      <i class="fas fa-chalkboard-teacher program-icon"></i>
+      <i class="fas fa-chalkboard-teacher"></i>
       <h3>Workshop Psikologis</h3>
     </div>
     <div class="program-card glass">
-      <i class="fas fa-leaf program-icon"></i>
+      <i class="fas fa-leaf"></i>
       <h3>Healing Session</h3>      
     </div>
     <div class="program-card glass">
-      <i class="fas fa-book-reader program-icon"></i>
+      <i class="fas fa-book-reader"></i>
       <h3>Studi Literatur</h3>     
     </div>
   </div>
 </section>
   
 <section id="blog" class="section-blog">
-  <h2><i class="fas fa-pen-nib icon"></i> Blog & Insight </h2>
+  <h2><i class="fas fa-pen-nib"></i> Blog & Insight </h2>
   <div class="blog-grid">
   
     <div class="blog-card glass">
@@ -496,6 +537,12 @@ a {
   
 <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script> 
 <script>
+  window.addEventListener("load", function () {
+      setTimeout(() => {
+        document.body.classList.add("loader");
+      }, 2000); // delay 2 seconds
+    });
+
   const tabs = document.querySelectorAll(".tab-item");
   const contents = document.querySelectorAll(".tab-content");
 
