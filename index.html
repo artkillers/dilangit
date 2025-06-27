@@ -34,32 +34,28 @@
   -webkit-tap-highlight-color: transparent; 
 }
 
-body {
+html {
   background: linear-gradient(120deg, var(--purple-dark1), var(--purple-dark2), var(--purple-dark3));
-  background-color: var(--glass-bg);
-  background-size: cover;  
-  color: var(--text);
+  background-size: 120%;
   line-height: 1.6;
-  padding: 2rem;
-}
-
-html, body {
-  width: 100%;
   font-size: 10px;
+  color: var(--text);
   font-family: var(--font-body);
   scroll-behavior: smooth;
   overflow-x: hidden;  
 }
 
+body {
+  padding: 2rem;  
+}
+
 section {
-  width: 100%;
-  height: 100%;
-  margin: 2rem auto;
-  padding: 2rem;
   border-radius: var(--radius);
   background-color: var(--glass-bg);
   backdrop-filter: var(--backdrop);
   box-shadow: var(--shadow);
+  margin: 2rem auto;
+  padding: 2rem;  
 }
 
 section h2 {
