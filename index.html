@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" style="overflow-y: scroll; -webkit-overflow-scrolling: touch; scroll-behavior: smooth;">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,12 +13,12 @@
   --purple-dark1: #3a1c71;
   --purple-dark2: #9e2f5e;
   --purple-dark3: #d76d77;
-  --text: #f8f8f8;
+  --text: #fff;
   --font-title: 'Montserrat', serif;
   --font-body: 'Montserrat', serif;
   --radius: 8px;
-  --backdrop: blur(2px) brightness(1.05);
-  --glass-bg: rgba(255, 255, 255, 0.10);  
+  --backdrop: blur(2px);
+  --glass-bg: rgba(255, 255, 255, 0.08);  
   --shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 
             inset 0 0 4px rgba(255, 255, 255, 0.04);
   --hover: 0 0 8px rgba(0, 0, 0, 0.3),
@@ -36,7 +36,7 @@
 
 html {
   background: linear-gradient(120deg, var(--purple-dark1), var(--purple-dark2), var(--purple-dark3));
-  background-size: 120%;
+  background-size: 100%;
   line-height: 1.6;
   font-size: 10px;
   color: var(--text);
@@ -46,7 +46,7 @@ html {
 }
 
 body {
-  padding: 2rem;  
+  padding: 3rem;  
 }
 
 section {
@@ -59,7 +59,6 @@ section {
 }
 
 section h2 {
-  font-family: var(--font-title);
   font-size: 2rem;
   margin-bottom: 2rem;
   color: #fff;
@@ -82,6 +81,19 @@ a {
   text-decoration: underline;
 }
 
+.glass {
+  padding: 1rem;  
+  border-radius: var(--radius);
+  background-color: var(--glass-bg);
+  backdrop-filter: var(--backdrop);
+  box-shadow: var(--shadow);
+}
+
+.hover:hover {
+  transform: scale(1.02);
+  box-shadow: var(--hover);
+}
+
 .section-home h1 {
   font-family: var(--font-title);
   font-size: 3rem;
@@ -91,7 +103,7 @@ a {
 .section-home p {
   font-size: 1rem;
 }
-   
+
 .profile-image {
   width: 175px;
   height: 175px;
@@ -102,16 +114,9 @@ a {
   display: block;
 }
 
-.profile-name { 
+.profile-name, .profile-bio {
   text-align: center; 
-  margin: 0 auto; 
-  margin-bottom: 25px;
-}
-    
-.profile-bio { 
-  text-align: center; 
-  margin: 0 auto; 
-  margin-bottom: 25px;
+  margin: 0 auto 25px;
 }
 
 .social-buttons {
@@ -128,15 +133,6 @@ a {
   width: 35px;
   height: 35px;
   text-decoration: none;
-  border-radius: var(--radius);
-  background: var(--glass-bg);
-  box-shadow: var(--shadow);
-  backdrop-filter: var(--backdrop);  
-}
-
-.social-buttons a:hover {
-  transform: scale(1.02);
-  box-shadow: var(--hover);
 }
 
 .social-buttons i {
@@ -149,8 +145,7 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 1rem;
   justify-content: center;
-  margin: 0 auto;
-  margin-bottom: 25px;
+  margin: 0 auto 25px;
 }
 
 .tab-item {
@@ -158,30 +153,17 @@ a {
   align-items: center;
   justify-content: center;
   height: 42px;
-  border-radius: var(--radius);
-  background: var(--glass-bg);
-  box-shadow: var(--shadow);
-  backdrop-filter: var(--backdrop);
-}
-
-.tab-item:hover {
-  transform: scale(1.02);
-  box-shadow: var(--hover);
 }
 
 .tab-content {
-  visibility: hidden;
+  display: none;
   opacity: 0;
-  height: 0;
-  overflow: hidden;
-  transition: opacity 0.3s ease, visibility 0s 0.3s, height 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .tab-content.active {
-  visibility: visible;
+  display: block;
   opacity: 1;
-  height: auto;
-  transition: opacity 0.3s ease, visibility 0s, height 0.3s ease;
 }
 
 .timeline {
@@ -191,37 +173,25 @@ a {
 }
 
 .timeline-item {
-  background: var(--glass-bg);
-  border-radius: var(--radius);
   padding: 1rem 1.2rem;
   display: flex;
   align-items: center;
   gap: 1rem;
-  box-shadow: var(--shadow);
 }
 
 .timeline-item i.icon {
   font-size: 1.8rem;
   color: #ffd1f2;
 }
-    
+
 .blog-grid, .program-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
 }
 
-.blog-card, .program-card {
-  backface-visibility: hidden;
-  contain: layout paint style;
-}
-
 .program-card {
-  background: var(--glass-bg);
-  backdrop-filter: var(--backdrop);
-  border-radius: var(--radius);
   padding: 1.5rem;
-  box-shadow: var(--shadow);
   text-align: center;
 }
 
@@ -236,31 +206,27 @@ a {
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 0 15px;
-} 
-    
+}
+
 .section-blog p {
   font-size: 10px;
   margin-bottom: 15px;
   padding:  0 15px;
-} 
+}
 
 .blog-image {
   width: 100%;
   height: 240px;
   object-fit: cover;
-  border-radius: var(--radius);
   display: block;
+  border-radius: var(--radius);
 }
 
 .blog-card {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: var(--glass-bg);
-  backdrop-filter: var(--backdrop);
   padding: 1.5rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
 }
 
 .section-contact .contact-info {
@@ -289,7 +255,6 @@ a {
 .contact-form textarea {
   padding: 0.8rem 1rem;
   font-family: var(--font-body);
-  border-radius: var(--radius);
   border: none;
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
@@ -309,25 +274,15 @@ a {
 }
 
 .contact-form button {
+  font-family: var(--font-body);
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 15px;
   color: #fff;
   border: none;
-  font-family: var(--font-body);
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
-  border-radius: var(--radius);
-  background: var(--glass-bg);
-  box-shadow: var(--shadow);
-  backdrop-filter: var(--backdrop);
-}
-
-.contact-form button:hover {
-  transform: scale(1.02);
-  box-shadow: var(--hover);
-  color: #fff;
 }
 
 .button-row {
@@ -342,20 +297,12 @@ a {
   display: inline-block;
   text-align: center;
   padding: 1rem 2rem;
-  border-radius: var(--radius);
   font-size: 1.2rem;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
-  backdrop-filter: var(--backdrop);
-  background: var(--glass-bg);
-  box-shadow: var(--shadow);
 }
 
-.btn:hover {
-  transform: scale(1.02);
-  box-shadow: var(--hover);
-}
 </style>
 </head>
 <body oncontextmenu="return false;" oncopy="return false;" onselectstart="return false;">
@@ -364,17 +311,17 @@ a {
   
   <!-- Social Media -->
   <div class="social-buttons">
-    <a href="https://instagram.com/dilaaangit" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://instagram.com/dilaaangit" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://instagram.com/dilaaangit" target="_blank"><i class="fab fa-telegram"></i></a>
-    <a href="https://instagram.com/dilaaangit"><i class="fas fa-envelope"></i></a>
+    <a href="https://instagram.com/dilaaangit" target="_blank"><i class="fab fa-whatsapp glass hover"></i></a>
+    <a href="https://instagram.com/dilaaangit" target="_blank"><i class="fab fa-instagram glass hover"></i></a>
+    <a href="https://instagram.com/dilaaangit" target="_blank"><i class="fab fa-telegram glass hover"></i></a>
+    <a href="https://instagram.com/dilaaangit"><i class="fas fa-envelope glass hover"></i></a>
   </div>
   
   <h1 class="profile-name">Ni'mah Fadilah</h1>
   
   <div class="button-row">
-  <a href="#contact" class="btn">Contact Me</a>
-  <a href="file-CV.pdf" class="btn" download>Download CV</a>
+  <a href="#contact" class="btn glass hover">Contact Me</a>
+  <a href="file-CV.pdf" class="btn glass hover" download>Download CV</a>
   </div>
 
   <p class="profile-bio">
@@ -383,25 +330,25 @@ a {
 
   <!-- About Tabs Start -->
   <div class="about-tabs">
-    <span class="tab-item active" data-target=".skills">Skills</span>
-    <span class="tab-item" data-target=".experience">Experience</span>
-    <span class="tab-item" data-target=".education">Education</span>
+    <span class="tab-item glass hover active" data-target=".skills">Skills</span>
+    <span class="tab-item glass hover" data-target=".experience">Experience</span>
+    <span class="tab-item glass hover" data-target=".education">Education</span>
   </div>
 
   <!-- Skills Tab -->
   <div class="tab-content skills active">
     <div class="timeline">
-      <div class="timeline-item">
+      <div class="timeline-item glass">
         <i class="fas fa-lightbulb icon"></i>
         <span>Selftaught</span>
         <h3>Psikoedukasi</h3>
       </div>
-      <div class="timeline-item">
+      <div class="timeline-item glass">
         <i class="fas fa-brain icon"></i>
         <span>Selftaught</span>
         <h3>Mindfulness Guidance</h3>
       </div>
-      <div class="timeline-item">
+      <div class="timeline-item glass">
         <i class="fas fa-pen-nib icon"></i>
         <span>Selftaught</span>
         <h3>Content Writing Psikologi</h3>
@@ -412,17 +359,17 @@ a {
   <!-- Experience Tab -->
   <div class="tab-content experience">
     <div class="timeline">
-      <div class="timeline-item">
+      <div class="timeline-item glass">
         <i class="fas fa-video icon"></i>
         <span>Freelance</span>
         <h3>Video Editing Edukasi</h3>
       </div>
-      <div class="timeline-item">
+      <div class="timeline-item glass">
         <i class="fas fa-paint-brush icon"></i>
         <span>Volunteer</span>
         <h3>Konten Psikologi Visual</h3>
       </div>
-      <div class="timeline-item">
+      <div class="timeline-item glass">
         <i class="fas fa-hand-holding-heart icon"></i>
         <span>Komunitas</span>
         <h3>Support Group Facilitator</h3>
@@ -433,17 +380,17 @@ a {
   <!-- Education Tab -->
   <div class="tab-content education">
     <div class="timeline">
-      <div class="timeline-item">
+      <div class="timeline-item glass">
         <i class="fas fa-graduation-cap icon"></i>
         <span>Universitas Ibrahimy</span>
         <h3>S1 Psikologi</h3>
       </div>
-      <div class="timeline-item">
+      <div class="timeline-item glass">
         <i class="fas fa-certificate icon"></i>
         <span>Pelatihan Nonformal</span>
         <h3>Basic Counseling Skills</h3>
       </div>
-      <div class="timeline-item">
+      <div class="timeline-item glass">
         <i class="fas fa-book icon"></i>
         <span>Workshop</span>
         <h3>Trauma-Informed Care</h3>
@@ -475,27 +422,27 @@ a {
 <section id="program" class="section-program">
   <h2><i class="fas fa-calendar-alt icon"></i> Programs & Activity </h2>
   <div class="program-grid">
-    <div class="program-card">
+    <div class="program-card glass">
       <i class="fas fa-brain program-icon"></i>
       <h3>Seminar Psikologi</h3>      
     </div>
-    <div class="program-card">
+    <div class="program-card glass">
       <i class="fas fa-hands-helping program-icon"></i>
       <h3>Psikoedukasi</h3>      
     </div>
-    <div class="program-card">
+    <div class="program-card glass">
       <i class="fas fa-users program-icon"></i>
       <h3>Kelompok Dukungan</h3>     
     </div>
-    <div class="program-card">
+    <div class="program-card glass">
       <i class="fas fa-chalkboard-teacher program-icon"></i>
       <h3>Workshop Psikologis</h3>
     </div>
-    <div class="program-card">
+    <div class="program-card glass">
       <i class="fas fa-leaf program-icon"></i>
       <h3>Healing Session</h3>      
     </div>
-    <div class="program-card">
+    <div class="program-card glass">
       <i class="fas fa-book-reader program-icon"></i>
       <h3>Studi Literatur</h3>     
     </div>
@@ -503,22 +450,22 @@ a {
 </section>
   
 <section id="blog" class="section-blog">
-  <h2><i class="fas fa-pen-nib icon"></i> Blog & Insight</h2>
+  <h2><i class="fas fa-pen-nib icon"></i> Blog & Insight </h2>
   <div class="blog-grid">
   
-    <div class="blog-card">
+    <div class="blog-card glass">
       <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mindfulness" class="blog-image" />
       <h3>Mindfulness</h3>
       <p>Mindfulness membantu mengelola stres akademik. Yuk, mulai dari napas dan jadwal tidurmu.</p>
     </div>
     
-    <div class="blog-card">
+    <div class="blog-card glass">
       <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Inner Child" class="blog-image" />
       <h3>Inner Child</h3>
       <p>Bagaimana luka masa kecil membentuk pola pikir kita saat dewasa? Temukan penjelasannya di sini.</p>
     </div>
     
-    <div class="blog-card">
+    <div class="blog-card glass">
       <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Journaling" class="blog-image" />
       <h3>Healing Journaling</h3> 
       <p>Menulis bukan sekadar mencurahkan isi hati. Ia juga sarana refleksi dan penyembuhan batin.</p>
@@ -532,18 +479,18 @@ a {
     <h2><i class="fas fa-envelope section-icon"></i> Get In Touch </h2>
      <form id="contactForm" class="contact-form">
       <label for="name"></label>
-      <input type="text" id="name" name="name" placeholder="Nama" required />
+      <input class="glass" type="text" id="name" name="name" placeholder="Nama" required />
 
       <label for="email"></label>
-      <input type="email" id="email" name="email" placeholder="Email" required />
+      <input class="glass" type="email" id="email" name="email" placeholder="Email" required />
       
       <label for="subject"></label>
-      <input type="subject" id="subject" name="subject" placeholder="Subjek" required />
+      <input class="glass" type="subject" id="subject" name="subject" placeholder="Subjek" required />
 
       <label for="message"></label>
-      <textarea id="message" name="message" rows="4" placeholder="Pesan" required></textarea>
+      <textarea class="glass" id="message" name="message" rows="4" placeholder="Pesan" required></textarea>
 
-      <button type="submit">Kirim</button>
+      <button class="glass hover" type="submit">Kirim</button>
     </form>
   </section>
   
