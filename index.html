@@ -328,7 +328,13 @@ a {
   to { transform: rotate(360deg); }
 }
 
-body.loader #preloader { 
+body.loader #preloader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+  
+body.loader { 
   overflow: hidden;
   opacity: 0;
   transition: opacity 1s ease;
